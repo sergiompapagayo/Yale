@@ -12,7 +12,9 @@ transition: all 1s ease;}
 img {
   width: 100%;
   max-width: 100%;
+  height: 400px;
   margin-bottom:20px;
+  border: solid black;
 }
 
 /*mobile first*/
@@ -20,23 +22,13 @@ body {
   background: white;
 }
 section {}
-.container {}
+.main__container {}
 .row {
   padding-top: 30px;
   padding-bottom: 30px;
   diplay: flex;
   flex-direction: column;
 }
-
-/*responsive framework*/
-/*.full, .half, .third, .two_thirds, .quarter, .fifth, .sixth {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-	padding:20px;
-}*/
 
 /*typography*/
 h1, h2, h3, h4, h5, h6 {
@@ -99,7 +91,6 @@ a {
 .header__search {
   display: none;
 }
-
 .header__nav ul {
   display: flex;
   flex-direction: column;
@@ -113,14 +104,27 @@ a {
 .header__login a {color: black;}
 
 /*hero image*/
-#hero {display:flex;
-align-items: flex-end;
-justify-content: center;
-min-height:600px;
-background-image:url("../img/hero.jpeg");
-background-size:cover;}
-#hero h1 {background-color:rgba(255,255,255,0.73);
-width:100%;padding:20px;text-align:center;}
+#hero {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height:500px;
+/*  background-image:url("../img/hero.jpeg");*/
+  background-size:cover;
+  border: solid black;
+}
+#hero h1 {
+/*  background-color:rgba(255,255,255,0.73);*/
+  width:100%;
+  padding:20px;
+  text-align:center;
+}
+
+.section-A, .section-B, .section-C, .section-D, .section-E {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
 
 #banner {
   padding:20px;
@@ -146,10 +150,8 @@ width:100%;padding:20px;text-align:center;}
     padding-bottom:10px;
 }
 .more {
-  text-transform: uppercase;
-  color: crimson;
+  color: orangered;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
   padding-top: 20px;
 }
 /*footer*/
@@ -235,15 +237,25 @@ width:100%;padding:20px;text-align:center;}
   }
   .header__login a {color: whitesmoke;}
   
-  .container {
+  .main__container {
     max-width: 1280px;
     margin: auto;
     background: white;
   }
-  .row {
-    display: flex;
+  .section-A {
     flex-direction: row;
-    width: 100%;
+    column-gap: 40px;
+  }
+  .section-A__left img {
+    height: 200px;
+  }
+  .section-C {
+    flex-direction: row;
+    column-gap: 40px;
+  }
+  .section-D {
+    flex-direction: row;
+    column-gap: 40px;
   }
 
   #footer {
