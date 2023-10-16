@@ -1,6 +1,10 @@
 @charset "UTF-8";
-/* CSS Document */
-* { /*universal reset*/
+/*set font scale 100% for smaller screens*/
+html {font-size:100%;
+transition: all 1s ease;}
+
+/*universal reset*/
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -8,43 +12,83 @@
 img {
   width: 100%;
   max-width: 100%;
+  margin-bottom:20px;
 }
+
 /*mobile first*/
 body {
   background: white;
 }
 section {}
-.container {
-  border: 1px solid #1B1B1B;
-}
-
-
-
+.container {}
 .row {
   padding-top: 30px;
   padding-bottom: 30px;
   diplay: flex;
   flex-direction: column;
 }
+
 /*responsive framework*/
-.full, .half, .third, .two_thirds, .quarter, .fifth, .sixth {
+/*.full, .half, .third, .two_thirds, .quarter, .fifth, .sixth {
   width: 100%;
-  outline:thin grey solid; /*delete this*/
-  display: flex; /*centers all text*/
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex-direction: column;
-	min-height:200px;
-}
+	padding:20px;
+}*/
+
 /*typography*/
 h1, h2, h3, h4, h5, h6 {
-/*  font-family: Georgia, "serif";*/
   font-family: 'Bona Nova', serif;
+  padding-bottom: 10px;
 }
 p {
-/*  font-family: Helvetica, Arial, "sans-serif";*/
-  
-  padding: 20px;
+  font-family: 'Noto Sans', sans-serif;
+}
+h1 {
+  margin-top: 0;
+  font-size: 4.209rem;
+}
+
+h2 {font-size: 3.157rem;}
+
+h3 {font-size: 2.369rem;}
+
+h4 {font-size: 1.777rem;}
+
+h5 {font-size: 1.333rem;}
+
+p {font-size: 1rem;}
+
+small, .text_small {font-size: 0.75rem;}
+
+
+/*header*/
+.header {
+  height: 300px;
+  background: #fff;
+  border-bottom: 4px solid slategrey;
+}
+.header__logo a {
+  text-decoration: none;
+  border: solid white;
+  color: antiquewhite;
+  display: block;
+}
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  height: 44px;
+  max-width: 584px;
+  width: calc(100vw - 40px);
+  background: #fff;
+  box-shadow: none;
 }
 /*navigation*/
 nav ul {
@@ -61,24 +105,46 @@ nav a {
   color: #00356b;
 }
 
-/*header*/
-#header {
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  background: pink;
-  border-bottom: 4px solid slategrey;
-}
-#header h1 a {
-  background-image: url("../img/yale_sm.jpg");
-  display: block;
-  height: 100px;
-  width: 100px;
-  text-indent: -9999px;
-  margin: auto;
-}
 /*hero image*/
+#hero {display:flex;
+align-items: flex-end;
+justify-content: center;
+min-height:600px;
+background-image:url("../img/hero.jpeg");
+background-size:cover;}
+#hero h1 {background-color:rgba(255,255,255,0.73);
+width:100%;padding:20px;text-align:center;}
 
+#banner {
+  padding:20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FC466B; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.supersize {
+  text-align: center;
+  font-size: 6rem;
+  color: white;
+}
+.stack {
+  border-bottom: 2px grey solid;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+    flex-direction: column;
+    padding-bottom:10px;
+}
+.more {
+  text-transform: uppercase;
+  color: crimson;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 20px;
+}
 /*footer*/
 #footer {
   display: flex;
@@ -92,27 +158,63 @@ nav a {
   color: white;
   line-height: 24px;
 }
+
 /*begin css for larger screens here*/
 @media screen and (min-width:740px) {
-  body {
-
+  /*increase fontsacle for larger screens*/
+  html {font-size:125%;}
+  body {}
+  .header {
+    display: flex;
+    flex-direction: column;
+    background-color: #00356b;
+    padding: 0 24px;
   }
-  #header {
-    height: 200px;
+  .header__top {
     display: flex;
     flex-direction: row;
-    background-color: lightgrey;
-    padding-top: 20px;
-    
-    margin: 0 
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 64px;
+    padding: 24px 0;
   }
-  #header h1 a {
-    background-image: url("../img/yale_lg.jpg");
-    display: block;
+  .header__logo {
     height: 150px;
-    width: 365px;
-    text-indent: -9999px;
   }
+  .header__logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header__search {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 16px;
+    height: 64px;
+  }
+  .search__input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dfe1e5;
+    border-radius: 32px;
+    height: 64px;
+    width: 100%;
+    background: white;
+    box-shadow: none;
+  }
+  .search__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dfe1e5;
+    height: 44px;
+    width: 44px;
+    background: white;
+  }
+  
   nav {
     min-width: 60%;
     margin-left: 30px;
@@ -138,15 +240,6 @@ nav a {
     margin: auto;
     background: white;
   }
-  #hero {
-    background-image: url("../img/hero_new.jpg");
-    background-size: cover;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .supersize {font-size: 40px}
   .row {
     display: flex;
     flex-direction: row;
@@ -154,9 +247,10 @@ nav a {
   }
 
   #footer {
-    max-width: 1280px;
+  
     margin: auto;
     flex-direction: row;
+	  height:100px;
     background: #333;
     color: white;
   }
