@@ -22,7 +22,8 @@
   
   --primary-text: #474747;
   --secondary-text: #6B6B6B;
-  --primary-background: #E8EFEE;
+  --tertiary-text: #F8F8F8;
+  --primary-background: #F8F8F8;
   --secondary-background: #CCE6FF;
   --tertiary--backgorund: #FFDF80;
 }
@@ -37,8 +38,8 @@ html {
 /* Margin and paddings reset for all the tags */
 * {
   margin: 0;
-  padding: 0;
   border: 0;
+  padding: 0;
   box-sizing: border-box;
   vertical-align: baseline;
 }
@@ -49,6 +50,9 @@ img, picture, video, iframe, figure {
   display: block;
   object-fit: cover;
   object-position: center center;
+}
+div {
+  display: flex;
 }
 /* Removing the bullets from <li> */
 li {
@@ -94,49 +98,36 @@ body {
   color: var(--secondary-text);
   background: white;
 }
+h1, h2, h3, h4, h5 {
+  font-family: var(--primary-font);
+}
 h1 {font-size: var(--font-xxxl);}
 h2 {font-size: var(--font-xxl);}
 h3 {font-size: var(--font-xl);}
 h4 {font-size: var(--font-l);}
 h5 {font-size: var(--font-m);}
-p, a {font-size: var(--font-s);}
+p, a {
+  font-size: var(--font-s);
+  font-family: var(--secondary-font);
+}
 
 /*------------------------------------*\
   MOBILE FIRST
 \*------------------------------------*/
-.row {
-  padding-top: 30px;
-  padding-bottom: 30px;
+.column {
+  width: 100%;
   diplay: flex;
   flex-direction: column;
 }
 /*responsive framework*/
 .full, .half, .third, .two_thirds, .quarter, .fifth, .sixth {
   width: 100%;
-  display: flex; 
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-	padding:20px;
+  display: flex;
 }
-/*typography*/
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--primary-font);
-  padding-bottom: 10px;
+.centered {
+  justify-content: center;
+  align-items: center;
 }
-p {
-  font-family: var(--secondary-font);
-}
-h1 {
-  margin-top: 0;
-  font-size: 4.209rem;
-}
-h2 {font-size: 3.157rem;}
-h3 {font-size: 2.369rem;}
-h4 {font-size: 1.777rem;}
-h5 {font-size: 1.333rem;}
-p {font-size: 1rem;}
-
 /*navigation*/
 nav ul {
   list-style-type: none;
@@ -147,18 +138,16 @@ nav li {
   height: 40px;
 }
 nav a {
-  text-decoration: none;
   line-height: 40px;
   color: #00356b;
 }
 
 /*header*/
 header {
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
   border-bottom: 4px solid slategrey;
+  padding: 20px 24px 0 24px;
+/*  height: 300px;*/
+  background: #fff;
 }
 header h1 a {
   background-image: url("../img/yale_sm.jpg");
@@ -234,25 +223,47 @@ footer a {
 {
   /*increase fontsacle for larger screens*/
   html {font-size:125%;}
-  body {}
   header {
-    height: 200px;
-    display: flex;
-    flex-direction: row;
-    background-color: #00356b;
-    padding-top: 20px;
+    height: auto;
+    background-color: var(--primary-color);
   }
-  header h1 a {
-    background-image: url("../img/yale_lg.jpg");
-    display: block;
-    height: 150px;
-    width: 365px;
-    text-indent: -9999px;
+  .logo svg {
+    height: 60px;
+  }
+  .logo h1 {
+    color: var(--tertiary-text);
+  }
+  .form__input {
+    border: transparent;
+    border-radius: 20px;
+    padding: 0 20px;
+    height: 40px;
+    color: var(--primary-text);
+    background-color: var(--primary-background);
+    outline: transparent;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .form__input:focus {
+    background-color: var(--secondary-background);
+  }
+  .form__input::placeholder {
+    color: var(--secondary-text);
+    transition: color 0.3s ease-in-out;
+  }
+  .form__input:focus::placeholder {
+    color: var(--secondary-background);
+  } 
+  .search__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    width: 64px;
   }
   nav {
+    margin-top: 20px;
+    height: 40px;
     min-width: 60%;
-    margin-left: 30px;
-    margin-top: 50px;
   }
   nav ul {
     display: flex;
@@ -266,20 +277,14 @@ footer a {
     height: 40px;
   }
   nav a {
-    color: white;
-    font-size: 24px;
+    color: var(--tertiary-text);
   }
   .container {
     max-width: 1280px;
     margin: auto;
     background: white;
   }
-  .row {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-  }
-  #footer {
+  footer {
     margin: auto;
     flex-direction: row;
 	  height:100px;
