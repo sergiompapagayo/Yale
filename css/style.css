@@ -1,4 +1,4 @@
-@charset "UTF-8"; /* CSS Document */
+@charset "UTF-8"; 
 
 /*------------------------------------*\
   CUSTOM PROPERTIES
@@ -11,10 +11,10 @@
   --font-s: 1rem; /*  16px  */
   --font-m: 1.25rem; /*  20px  */
   --font-l: 1.5rem; /*  24px  */
-  --font-xl: 2rem; /*  32px  */
-  --font-xxl: 2.5rem; /*  40px  */
-  --font-xxxl: 3rem; /*  48px  */
-  --font-gigant: 3.5rem; /*  48px  */
+  --font-xl: 1.75rem; /*  32px  */
+  --font-xxl: 2rem; /*  40px  */
+  --font-xxxl: 2.25rem; /*  48px  */
+  --font-gigant: 4rem; /*  48px  */
 
   --primary-color: #00356B;
   --secondary-color: #6B2D0B;
@@ -117,7 +117,7 @@ p, a {
 \*------------------------------------*/
 .column {
   width: 100%;
-  diplay: flex;
+  display: flex;
   flex-direction: column;
 }
 /*responsive framework*/
@@ -144,6 +144,7 @@ p, a {
   width: 60px;
   fill: var(--primary-color);
 }
+
 .logo-large {
   display: none;
 }
@@ -159,8 +160,14 @@ nav li {
   height: 40px;
 }
 nav a {
+  border-bottom: 0px solid var(--primary-color);
   line-height: 40px;
   color: #00356b;
+  transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.menu-item:hover {
+  border-bottom: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
 }
 /*header*/
 header {
@@ -174,6 +181,7 @@ header div {
 /*hero image*/
 #hero {
   display:flex;
+  align-items: start;
   min-height:400px;
   background-image:url("../img/hero-small.jpg");
   background-size:cover;
@@ -250,6 +258,11 @@ footer {
   .logo-large h1 {
     font-size: var(--font-gigant);
     color: var(--tertiary-text);
+    transition: color 0.3s ease-in-out;
+  }
+  .logo-large h1:hover {
+    font-size: 4.2rem;
+    color: var(--tertiary--backgorund);
   }
   .search-bar {
     display: flex;
@@ -260,6 +273,7 @@ footer {
     padding: 0 20px;
     height: 40px;
     width: 70%;
+    font-family: var(--secondary-font);
     text-align: center;
     color: var(--primary-text);
     background-color: var(--primary-background);
@@ -299,10 +313,17 @@ footer {
     width: auto;
   }
   nav a {
+    border-bottom: 0px solid var(--tertiary--backgorund);
     color: var(--tertiary-text);
+    transition: border-bottom 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  .menu-item:hover {
+    border-bottom: 2px solid var(--tertiary--backgorund);
+    color: var(--tertiary--backgorund);
   }
   #hero {
-  background-image:url("../img/hero-large.jpg");
+    align-items: center;
+    background-image:url("../img/hero-large.jpg");
   }
   .section-A, .section-C, .section-D {
     flex-direction: row;
