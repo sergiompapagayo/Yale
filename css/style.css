@@ -29,9 +29,11 @@
   --tertiary--backgorund: #FFDF80;
 }
 
-/*------------------------------------*\
+
+
+/*---------------------------------------------------------------------*\
   RESET + SET UP
-\*------------------------------------*/
+\*----------------------------------------------------------------------*/
 html {
   transition: all 1s ease;
   scroll-behavior: smooth;
@@ -67,6 +69,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
   font-style: inherit;
   text-decoration: none;
   color: inherit;
+
 }
 /* Changing the mouse cursor to a hand icon */
 a, button {
@@ -111,6 +114,7 @@ p, a {
   font-size: var(--font-s);
   font-family: var(--secondary-font);
 }
+
 
 /*------------------------------------*\
   MOBILE FIRST
@@ -286,7 +290,7 @@ footer {
   }
   .form__input::placeholder {
     text-align: center;
-    color: var(--secondary-text);
+    /* color: var(--secondary-text); */
     transition: all 0.3s ease-in-out;
   }
   .form__input:focus::placeholder {
