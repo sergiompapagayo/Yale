@@ -1,8 +1,16 @@
-@charset "UTF-8";
-/* CSS Document */
+@charset "UTF-8"; /* CSS Document */
+
+/* Custom Properties */
+:root {
+  --primary-font: 'Philosopher', sans-serif;
+  --secondary-font: 'Mulish', sans-serif;
+}
+
 /*set font scale 100% for smaller screens*/
-html {font-size:100%;
-transition: all 1s ease;}
+html {
+  font-size:100%;
+  transition: all 1s ease;
+}
 * { /*universal reset*/
   margin: 0px;
   padding: 0px;
@@ -11,14 +19,12 @@ transition: all 1s ease;}
 img {
   width: 100%;
   max-width: 100%;
-margin-bottom:20px;
+  margin-bottom:20px;
 }
 /*mobile first*/
 body {
   background: white;
 }
-section {}
-.container {}
 .row {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -28,41 +34,29 @@ section {}
 /*responsive framework*/
 .full, .half, .third, .two_thirds, .quarter, .fifth, .sixth {
   width: 100%;
-  /*outline:thin grey solid; delete this*/
-  display: flex; /*now top left*/
+  display: flex; 
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
 	padding:20px;
 }
-
-
-
-
 /*typography*/
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Abril Fatface', serif;
-    padding-bottom: 10px;
+  font-family: var(--primary-font);
+  padding-bottom: 10px;
 }
 p {
-  font-family: 'Montserrat', sans-serif;
-  
+  font-family: var(--secondary-font);
 }
 h1 {
   margin-top: 0;
   font-size: 4.209rem;
 }
-
 h2 {font-size: 3.157rem;}
-
 h3 {font-size: 2.369rem;}
-
 h4 {font-size: 1.777rem;}
-
 h5 {font-size: 1.333rem;}
- p {font-size: 1rem;}
-small, .text_small {font-size: 0.75rem;}
-
+p {font-size: 1rem;}
 
 /*navigation*/
 nav ul {
@@ -80,14 +74,14 @@ nav a {
 }
 
 /*header*/
-#header {
+header {
   height: 300px;
   display: flex;
   flex-direction: column;
   background: #fff;
-	 border-bottom: 4px solid slategrey;
+  border-bottom: 4px solid slategrey;
 }
-#header h1 a {
+header h1 a {
   background-image: url("../img/yale_sm.jpg");
   display: block;
   height: 100px;
@@ -96,15 +90,20 @@ nav a {
   margin: auto;
 }
 /*hero image*/
-#hero {display:flex;
-align-items: flex-end;
-justify-content: center;
-min-height:600px;
-background-image:url("../img/hero.jpeg");
-background-size:cover;}
-#hero h1 {background-color:rgba(255,255,255,0.73);
-width:100%;padding:20px;text-align:center;}
-
+#hero {
+  display:flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height:600px;
+  background-image:url("../img/hero.jpeg");
+  background-size:cover;
+}
+#hero h1 {
+  background-color:rgba(255,255,255,0.73);
+  width:100%;
+  padding:20px;
+  text-align:center;
+}
 #banner {
   padding:20px;
   display: flex;
@@ -125,8 +124,8 @@ width:100%;padding:20px;text-align:center;}
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-    flex-direction: column;
-    padding-bottom:10px;
+  flex-direction: column;
+  padding-bottom:10px;
 }
 .more {
   text-transform: uppercase;
@@ -136,34 +135,33 @@ width:100%;padding:20px;text-align:center;}
   padding-top: 20px;
 }
 /*footer*/
-#footer {
+footer {
   display: flex;
   flex-direction: column;
   background: #333;
 }
-#footer ul {
+footer ul {
   list-style-type: none;
 }
-#footer a {
+footer a {
   color: white;
   line-height: 24px;
 }
-/*begin css for larger screens here*/
-@media screen and (min-width:740px) {
-/*    increase fontsacle for larger screens*/
-    html {font-size:125%;}
-  body {
 
-  }
-  #header {
+/*Media Queries*/
+@media screen and (min-width:740px) 
+{
+  /*increase fontsacle for larger screens*/
+  html {font-size:125%;}
+  body {}
+  header {
     height: 200px;
     display: flex;
     flex-direction: row;
     background-color: #00356b;
     padding-top: 20px;
-   
   }
-  #header h1 a {
+  header h1 a {
     background-image: url("../img/yale_lg.jpg");
     display: block;
     height: 150px;
@@ -200,16 +198,13 @@ width:100%;padding:20px;text-align:center;}
     flex-direction: row;
     width: 100%;
   }
-
   #footer {
-  
     margin: auto;
     flex-direction: row;
 	  height:100px;
     background: #333;
     color: white;
   }
- 
   .full {
     width: 100%;
   }
