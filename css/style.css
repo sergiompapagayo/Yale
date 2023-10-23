@@ -14,6 +14,7 @@
   --font-xl: 2rem; /*  32px  */
   --font-xxl: 2.5rem; /*  40px  */
   --font-xxxl: 3rem; /*  48px  */
+  --font-gigant: 3.5rem; /*  48px  */
 
   --primary-color: #00356B;
   --secondary-color: #6B2D0B;
@@ -120,15 +121,35 @@ p, a {
   flex-direction: column;
 }
 /*responsive framework*/
-.full, .half, .third, .two_thirds, .quarter, .fifth, .sixth {
+.full, .half, .third, .two_thirds, .quarter {
   width: 100%;
   display: flex;
 }
-.centered {
+.centered-x {
   justify-content: center;
+}
+.centered-y {
   align-items: center;
 }
-/*navigation*/
+.right {
+  justify-content: flex-end;
+}
+.left {
+  justify-content: flex-start;
+}
+.logo-small {
+  display: flex;
+}
+.logo-small svg {
+  width: 60px;
+  fill: var(--primary-color);
+}
+.logo-large {
+  display: none;
+}
+.search-bar {
+  display: none;
+}
 nav ul {
   list-style-type: none;
 }
@@ -141,80 +162,69 @@ nav a {
   line-height: 40px;
   color: #00356b;
 }
-
 /*header*/
 header {
-  border-bottom: 4px solid slategrey;
+  border-bottom: 4px solid var(--border);
   padding: 20px 24px 0 24px;
-/*  height: 300px;*/
-  background: #fff;
+  background: var(--primary-background);
 }
-header h1 a {
-  background-image: url("../img/yale_sm.jpg");
-  display: block;
-  height: 100px;
-  width: 100px;
-  text-indent: -9999px;
-  margin: auto;
+header div {
+  flex-direction: column;
 }
 /*hero image*/
 #hero {
   display:flex;
-  align-items: flex-end;
-  justify-content: center;
-  min-height:600px;
-  background-image:url("../img/hero.jpeg");
+  min-height:400px;
+  background-image:url("../img/hero-small.jpg");
   background-size:cover;
 }
 #hero h1 {
-  background-color:rgba(255,255,255,0.73);
+  padding:10px;
   width:100%;
-  padding:20px;
+  color: var(--tertiary-text);
+  background-color: var(--secondary-color);
+  opacity: 90%;
   text-align:center;
 }
-#banner {
-  padding:20px;
+.container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #FC466B; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  flex-direction: column;
 }
-.supersize {
-  text-align: center;
-  font-size: 6rem;
-  color: white;
+.section-A, .section-C, .section-D {
+  flex-direction: column;
+  padding: 10px 24px;
+}
+.section-B {
+  padding: 10px 24px;
+}
+.section-A div a img, 
+.section-A a img,
+.section-C a img,
+.section-D div img
+{
+  height: calc(400px - 56px);
 }
 .stack {
-  border-bottom: 2px grey solid;
-  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  padding-bottom:10px;
+  border-bottom: 2px grey solid;
+  padding:10px 0;
+  width: 100%;
+  
 }
 .more {
-  text-transform: uppercase;
-  color: crimson;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  padding-top: 20px;
+  color: var(--secondary-color);
 }
 /*footer*/
 footer {
   display: flex;
-  flex-direction: column;
-  background: #333;
+  padding: 10px;
+  color: var(--tertiary-text);
+  background: var(--primary-color);
 }
-footer ul {
-  list-style-type: none;
-}
-footer a {
-  color: white;
-  line-height: 24px;
-}
+
 
 /*------------------------------------*\
   #MEDIA QUERIES
@@ -224,34 +234,49 @@ footer a {
   /*increase fontsacle for larger screens*/
   html {font-size:125%;}
   header {
+    border-bottom: 4px solid var(--border);
     height: auto;
     background-color: var(--primary-color);
   }
-  .logo svg {
-    height: 60px;
+  header div {
+    flex-direction: row;
   }
-  .logo h1 {
+  .logo-small {
+    display: none;
+  }
+  .logo-large {
+    display: flex;
+  }
+  .logo-large h1 {
+    font-size: var(--font-gigant);
     color: var(--tertiary-text);
+  }
+  .search-bar {
+    display: flex;
   }
   .form__input {
     border: transparent;
     border-radius: 20px;
     padding: 0 20px;
     height: 40px;
+    width: 70%;
+    text-align: center;
     color: var(--primary-text);
     background-color: var(--primary-background);
     outline: transparent;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   }
   .form__input:focus {
-    background-color: var(--secondary-background);
+    color: var(--primary-color);
+    background-color: var(--tertiary--backgorund);
   }
   .form__input::placeholder {
+    text-align: center;
     color: var(--secondary-text);
     transition: color 0.3s ease-in-out;
   }
   .form__input:focus::placeholder {
-    color: var(--secondary-background);
+    color: var(--tertiary--backgorund);
   } 
   .search__icon {
     display: flex;
@@ -260,36 +285,54 @@ footer a {
     height: 64px;
     width: 64px;
   }
-  nav {
-    margin-top: 20px;
-    height: 40px;
-    min-width: 60%;
+  .search__icon svg {
+    height: 32px;
+    fill: var(--primary-background);
   }
   nav ul {
     display: flex;
     flex-direction: row;
-    align-items: space-around;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
   nav li {
-    text-align: center;
-    width: 25%;
-    height: 40px;
+    padding: 0 8px;
+    width: auto;
   }
   nav a {
     color: var(--tertiary-text);
   }
-  .container {
-    max-width: 1280px;
-    margin: auto;
-    background: white;
+  #hero {
+  background-image:url("../img/hero-large.jpg");
   }
-  footer {
-    margin: auto;
+  .section-A, .section-C, .section-D {
     flex-direction: row;
-	  height:100px;
-    background: #333;
-    color: white;
+  }
+  .section-A {
+    column-gap: 20px;
+    height: 600px;
+  }
+  .section-A div a {
+    height: 50%;
+  }
+  .section-A div a img {
+    height: calc(100% - 56px);
+  }
+  .section-A a img {
+    height: calc(100% - 56px);
+  }
+  .section-C {
+    column-gap: 20px;
+    height: 400px;
+  }
+  .section-C a img {
+    height: calc(100% - 56px);
+  }
+  .section-D {
+    column-gap: 20px;
+    height: 400px;
+  }
+  .section-D div img {
+    height: calc(100% - (30% + 56px));
   }
   .full {
     width: 100%;
@@ -305,9 +348,5 @@ footer a {
   }
   .quarter {
     width: 25%;
-  }
-  .fifth {
-    width: 20%;
-    padding: 10px;
   }
 }
